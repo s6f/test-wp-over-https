@@ -6,13 +6,16 @@ services:
     image: wordpress
     restart: always
     ports:
-      - 8080:80
-      - 8443:443
+#      - 8080:80
+#      - 8443:443
+      - 80:80
+      - 443:443
     environment:
       WORDPRESS_DB_PASSWORD: example
     volumes:
       - ./html:/var/www/html
       - ./wp-init.sh:/usr/local/bin/apache2-custom.sh
+#      - ./.htaccess:/var/www/html/.htaccess
       - ./apache2-vhosts.conf:/etc/apache2/sites-available/apache2-vhosts.conf
     command: "bash -c apache2-custom.sh"
 

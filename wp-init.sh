@@ -5,10 +5,12 @@
 # so I can edit that outside the container
 apt-get update
 apt-get install -y  --no-install-recommends ssl-cert
-rm -r /var/lib/apt/lists/*
+apt-get install -y vim
+# rm -r /var/lib/apt/lists/*
 
 a2enmod ssl
-a2dissite 000-default.conf
+# a2dissite 000-default.conf
+a2ensite default-ssl.conf
 a2ensite apache2-vhosts.conf
 
 # finally execute default command
